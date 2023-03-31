@@ -1,0 +1,9 @@
+apiVersion: v1 
+kind: ConfigMap 
+metadata:
+  name: example-configmap 
+data:
+  #Configuration values can be set as key-value properties
+  MESSAGE: Hello from example-configmap
+
+

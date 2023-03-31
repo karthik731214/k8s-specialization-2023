@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pythonapp-deployment-on-eks-svc
+spec:
+  selector:
+    app: python-webapp
+  type: LoadBalancer
+  ports:
+    - port: 3100
+      targetPort: 5000
+
+
+

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-container-pod
+spec:
+  containers:
+    - name: c1
+      image: karthik1409docker/angularapps:v1
+      ports:
+        - containerPort: 4200   
+
+    - name: c2
+      image: karthik1409docker/nodeapps:v1
+      ports:
+        - containerPort: 3000

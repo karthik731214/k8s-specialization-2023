@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythonapp-deployment-on-eks
+spec:
+  selector:
+    matchLabels:
+      app: python-webapp
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: python-webapp
+    spec:
+      containers:
+        - name: python-webapp-container
+          image: karthik1409docker/pythonapps:python-webappv1
+          ports:
+            - containerPort: 5000
+
+
+
