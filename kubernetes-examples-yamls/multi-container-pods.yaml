@@ -5,11 +5,11 @@ metadata:
 spec:
   containers:
     - name: mvc
-      image: mvc:latest
+      image: mvc
       ports:
         - containerPort: 5000   
 
     - name: webapi
-      image: webapi:latest
+      image: webapi
       ports:
         - containerPort: 5000
