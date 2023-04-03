@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mvc_webapi_pod
+  name: mvc-webapi
 spec:
   containers:
     - name: mvc
