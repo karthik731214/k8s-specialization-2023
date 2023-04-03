@@ -9,6 +9,6 @@ spec:
       ports:
         - containerPort: 5000
      - name: aspnetcorewebapiapp
-      image: webapi
-      ports:
+        image: webapi
+        ports:
         - containerPort: 5000  
