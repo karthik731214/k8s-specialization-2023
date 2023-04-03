@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mvcapp_webapiapp
+spec:
+  containers:
+    -name: aspnetcoremvcapp
+      image: mvc
+      ports:
+        - containerPort: 5000
+     -name: aspnetcorewebapiapp
+      image: webapi
+      ports:
+        - containerPort: 5000  
