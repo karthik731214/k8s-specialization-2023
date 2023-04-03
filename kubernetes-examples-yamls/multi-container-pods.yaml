@@ -5,11 +5,11 @@ metadata:
 spec:
   containers:
     - name: mvc
-      image: mvc
+      image: karthik1409docker/dotnetcorewebapps:mvc
       ports:
         - containerPort: 5000   
 
     - name: webapi
-      image: webapi
+      image: karthik1409docker/dotnet-core-webapis:webapi
       ports:
         - containerPort: 6000
