@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       tier: frontend
-  replicas: 6
+  replicas: 3
   template:
     metadata:
       labels:
