@@ -4,17 +4,10 @@ metadata:
   name: angularapp-pod-v1
   labels:
     app: webapp-v1
+  # namespace: learning
 spec:
   containers:
     - name: angularapp-v1-container
       image: karthik1409docker/angularapps:v1
       ports:
         - containerPort: 4200
-
-
-
-
-
-
-
-
