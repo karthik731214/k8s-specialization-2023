@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeapp-useconfigmap-pod
+  labels:
+    app: nodeapp-useconfigmap
+spec:
+  volumes:
+    - name: example-configmap-volume
+      configMap:
+        name: example-configmap
+  containers:
+    - name: nodeapp-useconfigmap-container
+      image: karthik1409docker/nodeapps:nodeapp-read-from-configmap-via-vol
+      ports:
+        - containerPort: 3000
+      volumeMounts:
+        - name: example-configmap-volume
+          mountPath: /etc/config

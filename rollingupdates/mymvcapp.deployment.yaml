@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mvcappdeployment
+  labels:
+    app: mvcapp
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate # This is the default
+    rollingUpdate:
+      maxSurge: 1  #Default 25%
+      maxUnavailable: 1  # Default 25%
+  selector:
+    matchLabels:
+      app: mvcapp
+  template:
+    metadata:
+      labels:
+        app: mvcapp
+    spec:
+      containers:
+      - name: mvcappcontainer
+        image: karthik1409docker/fork8sdeploymentstrategies:v1
+        ports:
+        - containerPort: 5000   
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mvcsvc
+spec:
+  selector: 
+     app: mvcapp
+  type: NodePort
+  ports:
+    - name: http
+      port: 3001
+      targetPort: 5000  
+      nodePort: 30005 

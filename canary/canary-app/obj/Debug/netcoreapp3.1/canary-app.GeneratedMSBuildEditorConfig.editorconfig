@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = canary_app
+build_property.ProjectDir = c:\Users\karthikeyanj\Desktop\Specialization TOCs-2023\K8S\kubernetes-examples-yamls\canary\canary-app\

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeapp-useconfigmap-pod
+  labels:
+    app: nodeapp-useconfigmap
+spec:
+  containers:
+    - name: nodeapp-useconfigmap-container
+      image: karthik1409docker/nodeapps:nodeapp-read-from-configmap-via-env
+      ports:
+        - containerPort: 3000
+      envFrom:
+        - configMapRef:
+            name: example-configmap
+  
+
+
+
+

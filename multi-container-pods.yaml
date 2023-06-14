@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mvc-webapi
+spec:
+  containers:
+    - name: mvc
+      image: karthik1409docker/dotnetcorewebapps:mvc
+      ports:
+        - containerPort: 5000   
+
+    - name: webapi
+      image: karthik1409docker/dotnet-core-webapis:webapi
+      ports:
+        - containerPort: 6000

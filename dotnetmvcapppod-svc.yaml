@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: dotnetmvcapp-pod-v1
+  labels:
+    app: mvcwebapp-v1
+  # namespace: learning
+spec:
+  containers:
+    - name: dotnetmvcapp-v1-container
+      image: karthik1409docker/demodotnetcoreapps:v1
+      ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnetmvcapp-v1-svc
+spec:
+  selector: 
+    app: mvcwebapp-v1
+  type: NodePort
+  ports:
+    - name: http
+      port: 3000              # cluster IP port
+      targetPort: 5000    #container port
+      nodePort: 30000   # host port

@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mvcpod
+  labels:
+    app: mvc
+spec:
+  containers:
+    - name: mvc
+      image: karthik1409docker/dotnetcorewebapps:mvc
+      ports:
+        - containerPort: 5000   
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapipod
+  labels:
+    app: webapi
+spec:
+  containers:
+    - name: webapi
+      image: karthik1409docker/dotnet-core-webapis:webapi
+      ports:
+        - containerPort: 6000   
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapisvc
+spec:
+  selector: 
+    app: webapi
+  # type: NodePort
+  ports:
+    - name: http
+      port: 3001
+      targetPort: 6000  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mvcsvc
+spec:
+  selector: 
+    app: mvc
+  type: NodePort
+  ports:
+    - name: http
+      port: 3002
+      targetPort: 5000  
+      nodePort: 30001

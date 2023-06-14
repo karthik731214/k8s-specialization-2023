@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapi-useconfigmap-pod
+  labels:
+    app: webapi-useconfigmap
+spec:
+  containers:
+    - name: webapi-useconfigmap-container
+      image: karthik1409docker/configmapsecretsapps:webapi
+      ports:
+        - containerPort: 7000
+      envFrom:
+        - configMapRef:
+            name: example-configmap
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: configmapappsvc
+spec:
+  selector: 
+    app: webapi-useconfigmap
+  type: NodePort
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 7000  
+      nodePort: 30000

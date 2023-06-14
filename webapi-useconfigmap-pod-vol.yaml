@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapi-useconfigmap-pod
+  labels:
+    app: webapi-useconfigmap
+spec:
+  volumes:
+    - name: myvolume
+      configMap:
+        name: example-configmap
+  containers:
+    - name: webapi-useconfigmap-container
+      image: karthik1409docker/configmapsecretsapps:webapi
+      ports:
+        - containerPort: 7000
+      volumeMounts:
+        - name: myvolume
+          mountPath: /config
