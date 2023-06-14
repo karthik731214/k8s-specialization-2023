@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: Service   # service
 metadata:
-  name: angularapp-v1-svc
+  name: angularapp-v1-svc # label
 spec:
   selector: 
     app: webapp-v1
