@@ -17,7 +17,7 @@ metadata:
   name: angularapp-v2-svc
 spec:
   selector: 
-    app: webapp-v2
+    app: webapp-v1
   type: NodePort
   ports:
     - name: http
