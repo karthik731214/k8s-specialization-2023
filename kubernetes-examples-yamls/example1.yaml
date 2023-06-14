@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: angularapp-pod-v1
+  labels:
+    app: webapp-v1
+spec:
+  containers:
+    - name: angularapp-v1-container
+      image: karthik1409docker/angularapps:v1
+      ports:
+        - containerPort: 4200
+---
+apiVersion: v1
+kind: Service   # service
+metadata:
+  name: angularapp-v1-svc # label
+spec:
+  selector: 
+    app: webapp-v1
+  type: NodePort
+  ports:
+    - name: http
+      port: 3000              # cluster IP port
+      targetPort: 4200    #container port
+      nodePort: 30000   # host port
